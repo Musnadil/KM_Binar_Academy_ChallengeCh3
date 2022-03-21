@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/screenSatu">
+
+    <fragment
+        android:id="@+id/screenSatu"
+        android:name="com.musnadil.challengechapter3.fragment.ScreenSatu"
+        android:label="fragment_screen_satu"
+        tools:layout="@layout/fragment_screen_satu" >
+        <action
+            android:id="@+id/action_screenSatu_to_screenDua"
+            app:destination="@id/screenDua"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_out"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/screenDua"
+        android:name="com.musnadil.challengechapter3.fragment.ScreenDua"
+        android:label="fragment_screen_dua"
+        tools:layout="@layout/fragment_screen_dua" >
+        <action
+            android:id="@+id/action_screenDua_to_screenTiga"
+            app:destination="@id/screenTiga"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_out"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/screenTiga"
+        android:name="com.musnadil.challengechapter3.fragment.ScreenTiga"
+        android:label="fragment_screen_tiga"
+        tools:layout="@layout/fragment_screen_tiga" >
+        <action
+            android:id="@+id/action_screenTiga_to_screenEmpat"
+            app:destination="@id/screenEmpat"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_out"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/screenEmpat"
+        android:name="com.musnadil.challengechapter3.fragment.ScreenEmpat"
+        android:label="fragment_screen_empat"
+        tools:layout="@layout/fragment_screen_empat" >
+        <action
+            android:id="@+id/action_screenEmpat_to_screenTiga"
+            app:destination="@id/screenTiga"
+            app:enterAnim="@anim/slide_out"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_in"/>
+    </fragment>
+</navigation>
