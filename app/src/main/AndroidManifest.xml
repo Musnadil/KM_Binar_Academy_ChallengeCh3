@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/logolimas"
+        android:label="Limas Segi Empat"
+        android:roundIcon="@drawable/logolimas"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChallengeChapter3">
         <activity

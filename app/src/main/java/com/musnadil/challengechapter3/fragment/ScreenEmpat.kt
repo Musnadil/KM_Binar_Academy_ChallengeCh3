@@ -6,22 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.musnadil.challengechapter3.R
+import androidx.navigation.fragment.navArgs
 import com.musnadil.challengechapter3.RumusLimas
 import com.musnadil.challengechapter3.databinding.FragmentScreenEmpatBinding
 
 class ScreenEmpat : Fragment() {
     private var _binding: FragmentScreenEmpatBinding? = null
     private val binding get() = _binding!!
+    val args:ScreenEmpatArgs by navArgs()
 
-
-    companion object {
-        const val HASIL = "HASIL PERHITUNGAN LIMAS"
-        const val PANJANG = "PANJANG_ALAS"
-        const val LEBAR = "LEBAR_ALAS"
-        const val TINGGI = "TINGGI_LIMAS"
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,26 +36,22 @@ class ScreenEmpat : Fragment() {
             } else if (binding.etTinggiLimas.text.isNullOrEmpty()) {
                 binding.wrapEtTinggiLimas.error = "Kolom tinggi limas harus diisi"
             } else {
-                val nama = arguments?.getString(ScreenDua.NAMA)
-                val rumus = RumusLimas()
-                val hasil = rumus.limasSegiEmpat(
+                val nama = args.recieveNama
+                val hasil = RumusLimas().limasSegiEmpat(
                     binding.etPanjangAlas.text.toString().toDouble(),
                     binding.etLebarAlas.text.toString().toDouble(),
                     binding.etTinggiLimas.text.toString().toDouble()
                 )
-
-                val bundleScreenEmpat = Bundle().apply {
-                    putDouble(HASIL, hasil)
-                    putString(PANJANG, binding.etPanjangAlas.text.toString())
-                    putString(LEBAR, binding.etLebarAlas.text.toString())
-                    putString(TINGGI, binding.etTinggiLimas.text.toString())
-                    putString(ScreenDua.NAMA, nama)
-
-                }
-                findNavController().navigate(
-                    R.id.action_screenEmpat_to_screenTiga,
-                    bundleScreenEmpat
+                val dataLimas = LimasSegiEmpat(
+                    nama,
+                    hasil,
+                    binding.etPanjangAlas.text.toString(),
+                    binding.etLebarAlas.text.toString(),
+                    binding.etTinggiLimas.text.toString()
                 )
+
+                val actionToFragmentScreenTiga = ScreenEmpatDirections.actionScreenEmpatToScreenTiga(dataLimas)
+                findNavController().navigate(actionToFragmentScreenTiga)
             }
         }
     }

@@ -12,9 +12,7 @@ import com.musnadil.challengechapter3.databinding.FragmentScreenDuaBinding
 class ScreenDua : Fragment() {
     private var _binding : FragmentScreenDuaBinding? = null
     private val binding get() = _binding!!
-    companion object{
-        const val NAMA = "NAMA"
-    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,10 +28,11 @@ class ScreenDua : Fragment() {
             if (binding.etNama.text.isNullOrEmpty()){
                 binding.wrapEtNama.error = "Kolom nama masih kosong"
             }else{
-                val bundleScreenDua = Bundle().apply {
-                    putString(NAMA,binding.etNama.text.toString())
-                }
-                findNavController().navigate(R.id.action_screenDua_to_screenTiga,bundleScreenDua)
+                val hasilPerhitungan = LimasSegiEmpat(
+                    binding.etNama.text.toString()
+                )
+                val actionFragmentDua = ScreenDuaDirections.actionScreenDuaToScreenTiga(hasilPerhitungan)
+                findNavController().navigate(actionFragmentDua)
             }
         }
     }
