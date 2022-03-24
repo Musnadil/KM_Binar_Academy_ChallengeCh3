@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.musnadil.challengechapter3.R
 import com.musnadil.challengechapter3.databinding.FragmentScreenDuaBinding
 
 class ScreenDua : Fragment() {
@@ -16,7 +15,7 @@ class ScreenDua : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentScreenDuaBinding.inflate(inflater,container,false)
         return binding.root

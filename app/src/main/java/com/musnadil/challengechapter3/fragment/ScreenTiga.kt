@@ -8,14 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.musnadil.challengechapter3.R
 import com.musnadil.challengechapter3.databinding.FragmentScreenTigaBinding
 
 class ScreenTiga : Fragment() {
     private var _binding: FragmentScreenTigaBinding? = null
     private val binding get() = _binding!!
 
-    val args: ScreenTigaArgs by navArgs()
+    private val args: ScreenTigaArgs by navArgs()
 
 
     override fun onCreateView(
